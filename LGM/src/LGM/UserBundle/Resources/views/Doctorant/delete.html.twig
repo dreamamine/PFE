@@ -1,0 +1,10 @@
+{% extends "LGMAdministrationBundle::layout.html.twig" %}
+{% block page_body %}
+    <h3> Voulez vous vraiment supprimer le doctorant: <strong style="color:red;">
+            {{doctorant.nom}}</strong>  </h3>
+<form method="POST" action="{{path('delete_doctorant', {'token': doctorant.token} )}}">
+ <input type="submit" class="btn btn-danger" value="Oui" />   
+<a href="{{path("index_doctorant")}}" class="btn btn-warning">Non</a>
+{{form_rest(form)}}
+</form>
+        {% endblock %}

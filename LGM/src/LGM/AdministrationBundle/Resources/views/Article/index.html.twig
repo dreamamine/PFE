@@ -1,0 +1,98 @@
+{% extends "LGMAdministrationBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(function () {
+            $("#list").DataTable();
+        });
+    </script>
+{% endblock %}
+
+{% block page_body %}
+    <div class="box box-info box-solid">
+        <div class="box-header with-border">
+            <h3 class="box-title text-uppercase">Liste des article </h3>
+            <span class="pull-right">
+                <a href="{{ path('new_article') }}" class="btn btn-success text-uppercase"><i class="fa fa-plus"></i> Ajouter</a>
+            </span>
+        </div>
+
+        <div class="box-body">
+            <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="list"  class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 246px;" aria-label="titre: activate to sort column descending" aria-sort="ascending">titre</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="annePublication: activate to sort column ascending">annePublication</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="nbAuteur: activate to sort column ascending">nbAuteur</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 268px;" aria-label="valeur: activate to sort column ascending">auteur</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="nomJournal: activate to sort column ascending">nomJournal</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="Télècharger: activate to sort column ascending">Télècharger</th>
+
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 154px;" aria-label="Actions: activate to sort column ascending">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for article in articles %}
+                                    <tr>
+                                        
+                           <td>{{ article.titre }}</td>
+                           <td>{{ article.anneePublication|date("d/m/Y") }}</td>
+                           <td>{{ article.nbAuteur }}</td>
+                                        
+                            <td>
+                                            <ul>
+                                                {% for u in article.user %}
+                                                    <li>{{ u.nom }} </li>
+                                                    {% endfor %}
+                                            </ul>
+                             </td>
+                         
+                              
+                                        
+                                    
+                           <td>{{ article.nomJournal }}</td>
+                                       
+                           <td> <a href="{{ asset(article.brochure.webpath)  }} " target="_blank">View brochure (PDF)</a></td>                                 
+                                        
+                                       {% if is_granted('ROLE_ADMIN')  %}  
+                                        <td>
+                                            <a href="{{ path('edit_article', { 'token': article.token})}}" <i class="btn btn-info"><i class="fa fa-pencil"></i></a>
+
+
+                                            <a href="{{ path('delete_article', { 'token': article.token}) }}" <i class="btn btn-danger"><i class="fa fa-eraser" aria-hidden="true"></i></a>
+                                            <a href="{{ path('new_auteur', { 'token': article.token}) }}" <i class="btn btn-danger"><i class="fa fa-eraser" aria-hidden="true"></i>ajout auteur</a>
+
+                                        </td>
+                                    </tr>
+                                     {% endif %}
+                                     
+                                {%endfor%}
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th rowspan="1" colspan="1">titre </th>
+                                    <th rowspan="1" colspan="1">annePublication</th>
+                                    <th rowspan="1" colspan="1">nbAuteur</th>
+                                    <th rowspan="1" colspan="1">auteur</th>
+                                    <th rowspan="1" colspan="1">nomJournal</th>
+                                    <th rowspan="1" colspan="1">Télècharger</th>
+                                    
+                                    <th rowspan="1" colspan="1">Action</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

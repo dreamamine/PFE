@@ -1,0 +1,12 @@
+index_equipe:
+    path:     /index
+    defaults: { _controller: LGMAdministrationBundle:Equipe:index }
+new_equipe:
+    path:     /new
+    defaults: { _controller: LGMAdministrationBundle:Equipe:new }
+edit_equipe:
+    path:     /edit/{token}
+    defaults: { _controller: LGMAdministrationBundle:Equipe:edit }
+delete_equipe:
+    path:     /delete/{token}
+    defaults: { _controller: LGMAdministrationBundle:Equipe:delete }

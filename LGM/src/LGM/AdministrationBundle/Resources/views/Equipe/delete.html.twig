@@ -1,0 +1,10 @@
+{% extends "LGMAdministrationBundle::layout.html.twig" %}
+{% block page_body %}
+    <h3> Voulez vous vraiment supprimer l'equipe : <strong style="color:red;">
+            {{equipe.nom}}</strong> de votre equipe </h3>
+<form method="POST" action="{{path('delete_equipe', {'token': equipe.token} )}}">
+ <input type="submit" class="btn btn-danger" value="Oui" />   
+<a href="{{path("index_equipe")}}" class="btn btn-warning">Non</a>
+{{form_rest(form)}}
+</form>
+        {% endblock %}

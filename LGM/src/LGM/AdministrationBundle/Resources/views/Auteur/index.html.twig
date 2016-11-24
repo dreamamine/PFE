@@ -1,0 +1,68 @@
+{% extends "LGMAdministrationBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(function () {
+            $("#list").DataTable();
+        });
+    </script>
+{% endblock %}
+
+{% block page_body %}
+    <div class="box box-info box-solid">
+        <div class="box-header with-border">
+            <h3 class="box-title text-uppercase">Liste des auteur </h3>
+            <span class="pull-right">
+                <a href="{{ path('new_auteur',{'token':article.token}) }}" class="btn btn-success text-uppercase"><i class="fa fa-plus"></i> Ajouter</a>
+            </span>
+        </div>
+
+        <div class="box-body">
+            <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="list"  class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 246px;" aria-label="codeStructure: activate to sort column descending" aria-sort="ascending">Clasification</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="universite: activate to sort column ascending">User</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="universite: activate to sort column ascending">Action</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for auteur in auteurs %}
+                                    <tr>
+                                        <td>{{ auteur.classification }} éme</td>
+                                        <td>{{ auteur.user.nom}}, {{auteur.user.prenom}}</td>
+                                        
+                                         <td>
+                                            <a href="{{ path('edit_auteur', { 'token': auteur.token})}}" <i class="btn btn-info"><i class="fa fa-pencil"></i></a>
+
+
+                                            <a href="{{ path('delete_auteur', { 'token': auteur.token}) }}" <i class="btn btn-danger"><i class="fa fa-eraser" aria-hidden="true"></i></a>
+
+                                        </td>
+                                    </tr>
+                                {%endfor%}
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th rowspan="1" colspan="1">classification </th>
+                                    <th rowspan="1" colspan="1">user</th>
+                                   <th rowspan="1" colspan="1">Action</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

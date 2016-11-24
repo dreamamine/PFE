@@ -1,0 +1,80 @@
+{% extends "LGMAdministrationBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(function () {
+            $("#list").DataTable();
+        });
+    </script>
+{% endblock %}
+
+{% block page_body %}
+    <div class="box box-info box-solid">
+        <div class="box-header with-border">
+            <h3 class="box-title text-uppercase">Liste des communication </h3>
+            <span class="pull-right">
+                <a href="{{ path('new_communication') }}" class="btn btn-success text-uppercase"><i class="fa fa-plus"></i> Ajouter</a>
+            </span>
+        </div>
+
+        <div class="box-body">
+            <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="list"  class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 246px;" aria-label="titre: activate to sort column descending" aria-sort="ascending">titre</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="annePublication: activate to sort column ascending">annePublication</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="nbAuteur: activate to sort column ascending">nbAuteur</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 268px;" aria-label="valeur: activate to sort column ascending">valeur</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="nomCongrer: activate to sort column ascending">nomCongrer</th>
+                                    
+
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 154px;" aria-label="Actions: activate to sort column ascending">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for communication in communications %}
+                                    <tr>
+                                        
+                                        <td>{{ communication.titre }}</td>
+                                        <td>{{ communication.anneePublication|date("d/m/Y") }}</td>
+                                        <td>{{ communication.nbAuteur }}</td>
+                                        <td>{{ communication.valeur }}</td>
+                                        <td>{{ communication.nomCongrer }}</td>
+                                        
+                                        <td>
+                                            <a href="{{ path('edit_communication', { 'token': communication.token})}}" <i class="btn btn-info"><i class="fa fa-pencil"></i></a>
+
+
+                                            <a href="{{ path('delete_communication', { 'token': communication.token}) }}" <i class="btn btn-danger"><i class="fa fa-eraser" aria-hidden="true"></i></a>
+                                            <a href="{{ path('new_auteur', { 'token': communication.token}) }}" <i class="btn btn-danger"><i class="fa fa-eraser" aria-hidden="true"></i>ajout auteur</a>
+                                        </td>
+                                    </tr>
+                                {%endfor%}
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th rowspan="1" colspan="1">titre </th>
+                                    <th rowspan="1" colspan="1">annePublication</th>
+                                    <th rowspan="1" colspan="1">nbAuteur</th>
+                                    <th rowspan="1" colspan="1">valeur</th>
+                                    <th rowspan="1" colspan="1">nomCongrer</th>
+                                    
+                                    <th rowspan="1" colspan="1">Action</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

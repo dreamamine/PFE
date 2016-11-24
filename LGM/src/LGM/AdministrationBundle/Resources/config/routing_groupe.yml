@@ -1,0 +1,12 @@
+index_groupe:
+    path:     /index
+    defaults: { _controller: LGMAdministrationBundle:Groupe:index }
+new_groupe:
+    path:     /new
+    defaults: { _controller: LGMAdministrationBundle:Groupe:new }
+edit_groupe:
+    path:     /edit/{token}
+    defaults: { _controller: LGMAdministrationBundle:Groupe:edit }
+delete_groupe:
+    path:     /delete/{token}
+    defaults: { _controller: LGMAdministrationBundle:Groupe:delete }

@@ -1,0 +1,12 @@
+index_eleve_Mastere:
+    path:     /index
+    defaults: { _controller: LGMUserBundle:Eleve_Mastere:index }
+new_eleve_Mastere:
+    path:     /new
+    defaults: { _controller: LGMUserBundle:Eleve_Mastere:new }
+edit_eleve_Mastere:
+    path:     /edit/{token}
+    defaults: { _controller: LGMUserBundle:Eleve_Mastere:edit }
+delete_eleve_Mastere:
+    path:     /delete/{token}
+    defaults: { _controller: LGMUserBundle:Eleve_Mastere:delete }

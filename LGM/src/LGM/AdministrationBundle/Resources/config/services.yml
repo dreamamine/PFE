@@ -1,0 +1,4 @@
+services:
+#    lgm_administration.example:
+#        class: LGM\AdministrationBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

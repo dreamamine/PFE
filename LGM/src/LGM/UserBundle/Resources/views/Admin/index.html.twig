@@ -1,0 +1,80 @@
+{% extends "LGMUserBundle::layout.html.twig" %}
+{% block title %}FCBookingBundle:Categorie:index{% endblock %}
+
+{% block page_body %}
+    <center> <h1> <u></u> </h1><br> </center>
+    <br>
+    
+    <div class="row-fluid sortable">		
+				<div class="box span12">
+					<div class="box-header" data-original-title>
+						<h2><i class="halflings-icon user"></i><span class="break"></span>Liste Administrateur</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+                                           <a class="quick-button-small span1" href="{{path('fos_admin_registration')}}">
+							<i class="halflings-icon plus-sign"></i>
+							<p></p>
+							<span class="notification blue">7</span>
+                                            </a>
+                                            <br><br><br><br><br>
+						<table class="table table-striped table-bordered bootstrap-datatable datatable">
+						  <thead>
+							  <tr>
+                                                                  <th color="#00ff00" >Nom</th> 
+								  <th>Prenom</th>
+								   <th>Adresse</th>
+                                                                   <th>Email</th>
+                                                                   <th>Pseudo</th>
+                                                                   <th>Dernier connexion</th>
+                                                                     <th>Etat</th>
+								  <th>Actions</th>
+							  </tr>
+						  </thead>   
+						  <tbody>
+					 {% for admin in admin %}
+							<tr>
+								<td> {{admin.nom}}</td>
+                                                                    <td class="center"> {{admin.prenom}} </td>
+								   <td class="center"> {{admin.adresse.adresse}}{{admin.adresse.ville.nom}},{{admin.adresse.cp}} </td>
+                                                                      <td class="center"> {{admin.email}} </td>
+                                                                         <td class="center"> {{admin.username}} </td>
+                                                                            <td class="center"> {{admin.lastlogin|date('d\m\Y')}} </td>
+								  <td class="center"> 
+                                                                  {% if admin.enabled == 1 %}
+                                                                   <span class="label label-success">Activé</span>
+                                                                   {% else %}
+                                                                       <span class="label label-important">Desactivé</span>
+                                                                    {% endif %}
+                                                                  </td>
+								<td class="center">
+									
+                                                                                
+									<div class="btn-group">
+							<button class="btn btn-large">Action </button>
+							<button class="btn btn-large dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li><a href="{{path('delete_admin',{'salt':admin.salt})}}"><i class="halflings-icon star"></i> Supprimer</a></li>
+								
+                                                                {% if admin.enabled == 0 %}
+                                                                <li><a href="{{path('active_admin',{'salt':admin.salt})}}"><i class="halflings-icon tag"></i> Activé</a></li>
+                                                                {% else %}
+								<li><a href="{{path('desactive_admin',{'salt':admin.salt})}}"><i class="halflings-icon download-alt"></i> Desactivé</a></li>
+								{% endif %}
+							</ul>
+						</div>
+								</td>
+							</tr>
+                                         {% endfor %}
+						  </tbody>
+					  </table>            
+					</div>
+				</div><!--/span-->
+			
+			</div><!--/row-->
+ 
+{% endblock %}

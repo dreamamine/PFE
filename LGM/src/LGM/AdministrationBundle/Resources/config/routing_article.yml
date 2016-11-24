@@ -1,0 +1,12 @@
+index_article:
+    path:     /index
+    defaults: { _controller: LGMAdministrationBundle:Article:index }
+new_article:
+    path:     /new
+    defaults: { _controller: LGMAdministrationBundle:Article:new }
+edit_article:
+    path:     /edit/{token}
+    defaults: { _controller: LGMAdministrationBundle:Article:edit }
+delete_article:
+    path:     /delete/{token}
+    defaults: { _controller: LGMAdministrationBundle:Article:delete }

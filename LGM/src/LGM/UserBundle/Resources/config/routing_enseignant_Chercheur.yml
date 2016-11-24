@@ -1,0 +1,12 @@
+index_enseignant_Chercheur:
+    path:     /index
+    defaults: { _controller: LGMUserBundle:Enseignant_Chercheur:index }
+new_enseignant_Chercheur:
+    path:     /new
+    defaults: { _controller: LGMUserBundle:Enseignant_Chercheur:new }
+edit_enseignant_Chercheur:
+    path:     /edit/{token}
+    defaults: { _controller: LGMUserBundle:Enseignant_Chercheur:edit }
+delete_enseignant_Chercheur:
+    path:     /delete/{token}
+    defaults: { _controller: LGMUserBundle:Enseignant_Chercheur:delete }

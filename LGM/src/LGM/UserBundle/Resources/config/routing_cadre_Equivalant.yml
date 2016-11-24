@@ -1,0 +1,12 @@
+index_cadre_Equivalant:
+    path:     /index
+    defaults: { _controller: LGMUserBundle:Cadre_Equivalant:index }
+new_cadre_Equivalant:
+    path:     /new
+    defaults: { _controller: LGMUserBundle:Cadre_Equivalant:new }
+edit_cadre_Equivalant:
+    path:     /edit/{token}
+    defaults: { _controller: LGMUserBundle:Cadre_Equivalant:edit }
+delete_cadre_Equivalant:
+    path:     /delete/{token}
+    defaults: { _controller: LGMUserBundle:Cadre_Equivalant:delete }

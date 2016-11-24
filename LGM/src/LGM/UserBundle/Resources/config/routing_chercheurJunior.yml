@@ -1,0 +1,14 @@
+index_chercheurJunior:
+    path:     /index
+    defaults: { _controller: LGMUserBundle:Chercheur_Junior:index }
+delete_chercheurJunior:
+    path:     /delete/{salt}
+    defaults: { _controller: LGMUserBundle:Chercheur_Junior:delete }
+
+active_chercheurJunior:
+    path:     /active/{salt}
+    defaults: { _controller: LGMUserBundle:Chercheur_Junior:active }
+
+desactive_chercheurJunior:
+    path:     /desactive/{salt}
+    defaults: { _controller: LGMUserBundle:Chercheur_Junior:desactive }

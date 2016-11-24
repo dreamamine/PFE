@@ -1,0 +1,228 @@
+{% extends('LgmBundle::layout.html.twig') %}
+
+
+
+{% block stylesheets %}
+  {{ parent() }}
+ 
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('public/plugins/datatables/dataTables.bootstrap.css')}}"> 
+  <link rel="stylesheet" href="{{ asset('public/dist/css/skins/_all-skins.min.css')}}">
+          
+     <!-- jQuery 2.2.3 -->
+    <!-- DataTables -->
+    <script src="{{ asset('public/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('public/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+
+    <!-- hedea zedtouanyyyyyyyyyyy  -->
+    <script src="{{ asset('public/dist/table.js')}}"></script>
+     <!-- hedea zedtouanyyyyyyyyyyy  -->
+  {% endblock %}
+  
+
+
+{% block content %}
+
+      
+      <div class="box">
+          <div class="box-header">
+              <h3 class="box-title">Data Table With Full Features</h3>
+          </div>
+          <div class="box-body">
+              <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <div id="example1_length" class="dataTables_length">
+                              <label>
+                                  Show
+                                  <select class="form-control input-sm" name="example1_length" aria-controls="example1">
+                                      <option value="10">10</option>
+                                      <option value="25">25</option>
+                                      <option value="50">50</option>
+                                      <option value="100">100</option>
+                                  </select>
+                                  entries
+                              </label>
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div id="example1_filter" class="dataTables_filter">
+                              <label>
+                                  Search:
+                                  <input class="form-control input-sm" type="search" placeholder="" aria-controls="example1">
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                              <thead>
+                                  <tr role="row">
+                                      <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 246px;" aria-label="ID: activate to sort column descending" aria-sort="ascending">ID</th>
+                                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="Lastname: activate to sort column ascending">Name</th>
+                                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="Lastname: activate to sort column ascending">LastName</th>
+                                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 268px;" aria-label="Email: activate to sort column ascending">Email</th>
+                                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="Grade: activate to sort column ascending">Grade</th>
+                                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 154px;" aria-label="Actions: activate to sort column ascending">Action</th>
+                                  </tr>
+                              </thead>
+                           <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                                    <td>{{ user.name }}</td>
+                                    <td>{{ user.lastName }}</td>
+                                    
+                                    <td>{{ user.email }}</td>
+                                    
+                                    <td>{{ user.grade }}</td>
+                                    
+
+                                    <td>
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                              <tfoot>
+                                  <tr>
+                                      <th rowspan="1" colspan="1">ID</th>
+                                      <th rowspan="1" colspan="1">Name</th>
+                                      <th rowspan="1" colspan="1">Lastname</th>
+                                      <th rowspan="1" colspan="1">Email</th>
+                                      <th rowspan="1" colspan="1">Grade</th>
+                                      <th rowspan="1" colspan="1">Actions</th>
+                                  </tr>
+                              </tfoot>
+                          </table>
+                            <ul>
+        <li>
+            <a href="{{ path('user_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-5">
+                          <div id="example1_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+                      </div>
+                      <div class="col-sm-7">
+                          <div id="example1_paginate" class="dataTables_paginate paging_simple_numbers">
+                              <ul class="pagination">
+                                  <li id="example1_previous" class="paginate_button previous disabled">
+                                      <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a>
+                                  </li>
+                                  <li class="paginate_button active">
+                                      <a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a>
+                                  </li>
+                                  <li class="paginate_button ">
+                                      <a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a>
+                                  </li>
+                                  <li class="paginate_button ">
+                                      <a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a>
+                                  </li>
+                                  <li class="paginate_button ">
+                                      <a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">4</a>
+                                  </li>
+                                  <li class="paginate_button ">
+                                      <a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0">5</a>
+                                  </li>
+                                  <li class="paginate_button ">
+                                      <a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">6</a>
+                                  </li>
+                                  <li id="example1_next" class="paginate_button next">
+                                      <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">Next</a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        
+        
+ 
+      </div>
+  
+       
+{#
+
+    <h1>User list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Gender</th>
+                <th>Birthday</th>
+                <th>Birthplace</th>
+                <th>Email</th>
+                <th>Phonenumber</th>
+                <th>Grade</th>
+                <th>Profile</th>
+                <th>Documentid</th>
+                <th>Photoid</th>
+                <th>Directeur</th>
+                <th>Codirecteur</th>
+                <th>Effectue</th>
+                <th>Mediaid</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{% if user.birthday %}{{ user.birthday|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ user.birthPlace }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phoneNumber }}</td>
+                <td>{{ user.grade }}</td>
+                <td>{{ user.profile }}</td>
+                <td>{{ user.documentId }}</td>
+                <td>{{ user.photoId }}</td>
+                <td>{% if user.directeur %}Yes{% else %}No{% endif %}</td>
+                <td>{% if user.coDirecteur %}Yes{% else %}No{% endif %}</td>
+                <td>{% if user.effectue %}Yes{% else %}No{% endif %}</td>
+                <td>{{ user.mediaId }}</td>
+                <td>{% if user.created %}{{ user.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if user.updated %}{{ user.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_new') }}">Create a new entry</a>
+        </li>
+    </ul>      
+
+#}
+{% endblock %}

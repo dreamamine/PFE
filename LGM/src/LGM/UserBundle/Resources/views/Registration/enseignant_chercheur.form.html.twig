@@ -1,0 +1,15 @@
+{% extends "LGMUserBundle::layout.html.twig" %}
+
+{% block page_body %}
+
+	
+                <form action="{{ path('fos_enseignant_chercheur_registration') }}"   class="form-horizontal" {{ form_enctype(form) }} method="POST">
+        
+             {{ form_widget(form) }}
+        <div>
+            <input type="submit" value="{{ 'registration.submit'|trans }}" />
+        </div>
+  
+    </form>
+		
+{% endblock %}

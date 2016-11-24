@@ -1,0 +1,89 @@
+{% extends "LGMAdministrationBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(function () {
+            $("#list").DataTable();
+        });
+    </script>
+{% endblock %}
+
+{% block page_body %}
+    <div class="box box-info box-solid">
+        <div class="box-header with-border">
+            <h3 class="box-title text-uppercase">Liste des structure </h3>
+            <span class="pull-right">
+                <a href="{{ path('new_structure') }}" class="btn btn-success text-uppercase"><i class="fa fa-plus"></i> Ajouter</a>
+            </span>
+        </div>
+
+        <div class="box-body">
+            <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="list"  class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 246px;" aria-label="codeStructure: activate to sort column descending" aria-sort="ascending">CodeStructure</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="universite: activate to sort column ascending">Universite</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="etablissement: activate to sort column ascending">Etablissement</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 268px;" aria-label="denomination: activate to sort column ascending">Dénomination</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="cinResp: activate to sort column ascending">Cin Responsable</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="nomresp: activate to sort column ascending">Nom Responsable</th>
+
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="prenomresp: activate to sort column ascending">Prenom Resp</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="webSite: activate to sort column ascending">Site Web</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="datecreation: activate to sort column ascending">Date Création</th>
+
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 154px;" aria-label="Actions: activate to sort column ascending">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for structure in structures %}
+                                    <tr>
+                                        <td>{{ structure.codeStructure }}</td>
+                                        <td>{{ structure.universite }}</td>
+                                        <td>{{ structure.etablissement }}</td>
+                                        <td>{{ structure.denomination }}</td>
+                                        <td>{{ structure.cinResp }}</td>
+                                        <td>{{ structure.nomresp }}</td>
+                                        <td>{{ structure.prenomresp }}</td>
+                                        <td>{{ structure.webSite }}</td>
+                                        <td>{{ structure.datecreation|date('Y-m-d H:m:s') }}</td>
+                                        <td>
+                                            <a href="{{ path('edit_structure', { 'token': structure.token})}}" <i class="btn btn-info"><i class="fa fa-pencil"></i></a>
+
+
+                                            <a href="{{ path('delete_structure', { 'token': structure.token}) }}" <i class="btn btn-danger"><i class="fa fa-eraser" aria-hidden="true"></i></a>
+
+                                        </td>
+                                    </tr>
+                                {%endfor%}
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th rowspan="1" colspan="1">Code </th>
+                                    <th rowspan="1" colspan="1">universite</th>
+                                    <th rowspan="1" colspan="1">etablissement</th>
+                                    <th rowspan="1" colspan="1">denomination</th>
+                                    <th rowspan="1" colspan="1">cinResp</th>
+                                    <th rowspan="1" colspan="1">nomresp </th>
+                                    
+                                    <th rowspan="1" colspan="1">prenomresp</th>
+                                    <th rowspan="1" colspan="1">webSite</th>
+                                    <th rowspan="1" colspan="1">Action</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

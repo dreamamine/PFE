@@ -1,0 +1,15 @@
+index_admin:
+    path:     /index
+    defaults: { _controller: LGMUserBundle:Admin:index }
+
+delete_admin:
+    path:     /delete/{salt}
+    defaults: { _controller: LGMUserBundle:Admin:delete }
+
+active_admin:
+    path:     /active/{salt}
+    defaults: { _controller: LGMUserBundle:Admin:active }
+
+desactive_admin:
+    path:     /desactive/{salt}
+    defaults: { _controller: LGMUserBundle:Admin:desactive }

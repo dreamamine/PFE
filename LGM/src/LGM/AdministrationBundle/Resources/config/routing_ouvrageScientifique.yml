@@ -1,0 +1,12 @@
+index_ouvrageScientifique:
+    path:     /index
+    defaults: { _controller: LGMAdministrationBundle:OuvrageScientifique:index }
+new_ouvrageScientifique:
+    path:     /new
+    defaults: { _controller: LGMAdministrationBundle:OuvrageScientifique:new }
+edit_ouvrageScientifique:
+    path:     /edit/{token}
+    defaults: { _controller: LGMAdministrationBundle:OuvrageScientifique:edit }
+delete_ouvrageScientifique:
+    path:     /delete/{token}
+    defaults: { _controller: LGMAdministrationBundle:OuvrageScientifique:delete }

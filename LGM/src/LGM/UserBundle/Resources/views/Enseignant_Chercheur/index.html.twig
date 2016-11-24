@@ -1,0 +1,71 @@
+{% extends "LGMAdministrationBundle::layout.html.twig" %}
+{% block page_body %}
+    
+      
+    <div class="row">
+        <div class="col-xs-12">
+      
+                     
+     <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Liste des Enseignant_Chercheur</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <a class="btn btn-app" href="{{path('new_enseignant_Chercheur')}}">
+                    <i class="fa fa-save"></i><b> Ajouter</b>
+              </a>
+                <br><br><br>
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Nom </th>
+                   <th>prenom </th>
+                  <th>grade</th>
+                  <th>fonction</th>
+                  
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for enseignant_Chercheur in enseignant_Chercheurs %}
+                                    <tr>
+                                        <td>{{ enseignant_Chercheur.nom }}</td>
+                                        <td>{{ enseignant_Chercheur.prenom }}</td>
+                                        <td>{{ enseignant_Chercheur.grade }}</td>
+                                         <td>{{ enseignant_Chercheur.fonction }}</td>
+                                       
+                                         <td>
+                                            <a href="{{ path('edit_enseignant_Chercheur', { 'token': enseignant_Chercheur.token})}}" <i class="btn btn-info"><i class="fa fa-pencil"></i></a>
+
+
+                                            <a href="{{ path('delete_enseignant_Chercheur', { 'token': enseignant_Chercheur.token}) }}" <i class="btn btn-danger"><i class="fa fa-eraser" aria-hidden="true"></i></a>
+
+                                        </td>
+                                    </tr>
+                {%endfor%}
+                
+                
+                </tbody>
+                <tfoot>
+                 <tr>
+                  <th>Nom </th>
+                   <th>prenom </th>
+                  <th>grade</th>
+                  <th>fonction</th>
+                  
+                  
+                  
+                  <th>Action</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+           </div>
+          </div>
+                
+    
+    {% endblock %}

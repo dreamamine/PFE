@@ -1,0 +1,12 @@
+index_projet:
+    path:     /index
+    defaults: { _controller: LGMAdministrationBundle:Projet:index }
+new_projet:
+    path:     /new
+    defaults: { _controller: LGMAdministrationBundle:Projet:new }
+edit_projet:
+    path:     /edit/{token}
+    defaults: { _controller: LGMAdministrationBundle:Projet:edit }
+delete_projet:
+    path:     /delete/{token}
+    defaults: { _controller: LGMAdministrationBundle:Projet:delete }

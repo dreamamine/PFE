@@ -1,0 +1,12 @@
+index_doctorant:
+    path:     /index
+    defaults: { _controller: LGMUserBundle:Doctorant:index }
+new_doctorant:
+    path:     /new
+    defaults: { _controller: LGMUserBundle:Doctorant:new }
+edit_doctorant:
+    path:     /edit/{token}
+    defaults: { _controller: LGMUserBundle:Doctorant:edit }
+delete_doctorant:
+    path:     /delete/{token}
+    defaults: { _controller: LGMUserBundle:Doctorant:delete }
