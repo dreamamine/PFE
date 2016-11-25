@@ -15,7 +15,7 @@ class ArticleType extends AbstractType
     {
         $builder
                 ->add('titre')
-                -->add('anneePublication','date', [
+                ->add('anneePublication','date', [
                 'widget' => 'single_text',
                 'format' => 'dd-MM-yyyy',
                 'attr' => [
@@ -26,7 +26,15 @@ class ArticleType extends AbstractType
                 ->add('nbAuteur')
                 ->add('valeur')
                 ->add('nomJournal')
-                ->add('indx')
+                ->add('indxType', 'choice', array(
+                'choices' => array(
+ 		'Article IF' => 'Article IF',
+ 		'Article ID' => 'Article ID',
+ 		'Article N ID' => 'Article N ID',
+ 		'communication ID' => 'communication ID',
+ 		'communication N ID' => 'communication N ID',
+                )
+                ))
                ->add('vol')
                ->add('num')
                ->add('pp')

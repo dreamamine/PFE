@@ -75,9 +75,9 @@ class Article
      /**
      * @var string
      *
-     * @ORM\Column(name="indx", type="string", length=255)
+     * @ORM\Column(name="indxType", type="string", length=255)
      */
-    private $indx;
+    private $indxType;
 
     /**
      * @var string
@@ -542,5 +542,28 @@ class Article
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set indxType
+     *
+     * @param string $indxType
+     * @return Article
+     */
+    public function setIndxType($indxType)
+    {
+        $this->indxType = $indxType;
+
+        return $this;
+    }
+
+    /**
+     * Get indxType
+     *
+     * @return string 
+     */
+    public function getIndxType()
+    {
+        return $this->indxType;
     }
 }

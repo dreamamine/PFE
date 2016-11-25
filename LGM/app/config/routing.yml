@@ -40,6 +40,9 @@ lgm_user_enseignant_Chercheur:
 lgm_user_resigster:
     resource: "@LGMUserBundle/Resources/config/routing.yml"
     prefix:   /Admin/
+lgm_bilan:
+    resource: "@LGMAdministrationBundle/Resources/config/routing_bilan.yml"
+    prefix:   /Admin/Bilan/
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

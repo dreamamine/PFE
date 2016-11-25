@@ -1,0 +1,12 @@
+index_bilan:
+    path:     /index
+    defaults: { _controller: LGMAdministrationBundle:Bilan:index }
+new_bilan:
+    path:     /new
+    defaults: { _controller: LGMAdministrationBundle:Bilan:new }
+edit_bilan:
+    path:     /edit/{token}
+    defaults: { _controller: LGMAdministrationBundle:Bilan:edit }
+delete_bilan:
+    path:     /delete/{token}
+    defaults: { _controller: LGMAdministrationBundle:Bilan:delete }
