@@ -15,14 +15,30 @@ class CommunicationType extends AbstractType
    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre')
-            ->add('anneePublication', 'datetime')
+        ->add('titre')
+        ->add('anneePublication','date', [
+                'widget' => 'single_text',
+                'format' => 'dd-MM-yyyy',
+                'attr' => [
+                'class' => 'form-control input-inline datepicker',
+                'data-provide' => 'datepicker',
+                'data-date-format' => 'dd-mm-yyyy']]
+                )
             ->add('nbAuteur')
             ->add('valeur')
             ->add('nomCongrer')
+            ->add('indx')
+            ->add('vol')
+            ->add('num')
+            ->add('pp')
             ->add('brochure', new MediaType())        
-          
-        ;
+            ->add('users', 'entity', array(
+                'class' => 'LGM\UserBundle\Entity\User',
+                'property' => 'username',
+                'multiple' => true,
+                'expanded' => false,
+    ))            
+                ;
     }
    
     

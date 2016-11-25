@@ -28,6 +28,7 @@
                                     <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 246px;" aria-label="titre: activate to sort column descending" aria-sort="ascending">titre</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="annePublication: activate to sort column ascending">annePublication</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="nbAuteur: activate to sort column ascending">nbAuteur</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 268px;" aria-label="valeur: activate to sort column ascending">auteur</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 268px;" aria-label="valeur: activate to sort column ascending">valeur</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="nomCongrer: activate to sort column ascending">nomCongrer</th>
                                     
@@ -42,6 +43,17 @@
                                         <td>{{ communication.titre }}</td>
                                         <td>{{ communication.anneePublication|date("d/m/Y") }}</td>
                                         <td>{{ communication.nbAuteur }}</td>
+                                        
+                                        <td>
+                                            <ul>
+                                                {% for u in communication.users %}
+                                                    <li>{{ u.nom }} {{ u.prenom }}</li>
+                                                    {% endfor %}
+                                            </ul>
+                                        </td>
+                                        
+                                        
+                                        
                                         <td>{{ communication.valeur }}</td>
                                         <td>{{ communication.nomCongrer }}</td>
                                         
@@ -50,7 +62,7 @@
 
 
                                             <a href="{{ path('delete_communication', { 'token': communication.token}) }}" <i class="btn btn-danger"><i class="fa fa-eraser" aria-hidden="true"></i></a>
-                                            <a href="{{ path('new_auteur', { 'token': communication.token}) }}" <i class="btn btn-danger"><i class="fa fa-eraser" aria-hidden="true"></i>ajout auteur</a>
+                                             <!--  <a href="{{ path('new_auteur', { 'token': article.token}) }}" <i class="btn btn-danger"><i class="fa fa-eraser" aria-hidden="true"></i>ajout auteur</a> -->
                                         </td>
                                     </tr>
                                 {%endfor%}
@@ -62,6 +74,7 @@
                                     <th rowspan="1" colspan="1">titre </th>
                                     <th rowspan="1" colspan="1">annePublication</th>
                                     <th rowspan="1" colspan="1">nbAuteur</th>
+                                    <th rowspan="1" colspan="1">auteur</th>
                                     <th rowspan="1" colspan="1">valeur</th>
                                     <th rowspan="1" colspan="1">nomCongrer</th>
                                     

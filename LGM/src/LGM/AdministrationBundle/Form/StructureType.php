@@ -33,17 +33,17 @@ class StructureType extends AbstractType
                 ->add('prenomResp')
                 ->add('website')
                 ->add('dateCreation', 'date', [
-    'widget' => 'single_text',
-    'format' => 'dd-MM-yyyy',
-    'attr' => [
-        'class' => 'form-control input-inline datepicker',
-        'data-provide' => 'datepicker',
-        'data-date-format' => 'dd-mm-yyyy'
-    ]
-]
-                );
+                    'widget' => 'single_text',
+                    'format' => 'dd-MM-yyyy',
+                    'attr' => [
+                        'class' => 'form-control input-inline datepicker',
+                        'data-provide' => 'datepicker',
+                        'data-date-format' => 'dd-mm-yyyy'
+                    ]
+                        ]
+        );
     }
-    
+
     /**
      * {@inheritdoc}
      */

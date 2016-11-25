@@ -138,10 +138,10 @@ class Article
     
     
     /**
-     *@ORM\ManyToOne(targetEntity="LGM\UserBundle\Entity\User", inversedBy="articles", cascade={"persist", "remove"})
+     *@ORM\ManyToMany(targetEntity="LGM\UserBundle\Entity\User", inversedBy="articles", cascade={"persist", "remove"})
      */
     
-    private $user;
+    private $users;
   
     
     public function __construct() {
@@ -509,5 +509,38 @@ class Article
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add users
+     *
+     * @param \LGM\UserBundle\Entity\User $users
+     * @return Article
+     */
+    public function addUser(\LGM\UserBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \LGM\UserBundle\Entity\User $users
+     */
+    public function removeUser(\LGM\UserBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

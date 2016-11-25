@@ -97,11 +97,11 @@ class OuvrageScientifique
     
     
     /**
-    * @ORM\ManyToMany(targetEntity="LGM\UserBundle\Entity\User", mappedBy="ouvrages")
-    * 
-    */
-    private $users;
+     *@ORM\ManyToMany(targetEntity="LGM\UserBundle\Entity\User", inversedBy="ouvrages", cascade={"persist", "remove"})
+     */
     
+    private $users;
+  
     
     public function __construct() {
         $this->token = base_convert(sha1(uniqid(mt_rand(1, 999), true)),16, 36);

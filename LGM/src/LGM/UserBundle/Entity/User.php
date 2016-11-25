@@ -54,11 +54,25 @@ abstract class User extends BaseUser
     
     private $groupe;
     
-    /**
-     *@ORM\OneToMany(targetEntity="LGM\AdministrationBundle\Entity\Article", mappedBy="user", cascade={"persist", "remove"})
-     *@ORM\JoinColumn(nullable=false)
-    */
+   /**
+     *@ORM\ManyToMany(targetEntity="LGM\AdministrationBundle\Entity\Article", inversedBy="users", cascade={"persist", "remove"})
+     */
+    
     private $articles;
+    
+    /**
+     *@ORM\ManyToMany(targetEntity="LGM\AdministrationBundle\Entity\Communication", inversedBy="users", cascade={"persist", "remove"})
+     */
+    
+    private $communictaions;
+    
+    /**
+     *@ORM\ManyToMany(targetEntity="LGM\AdministrationBundle\Entity\OuvrageScientifique", inversedBy="users", cascade={"persist", "remove"})
+     */
+    
+    private $ouvrages;
+   
+    
     
     
     public function __construct() {
@@ -234,5 +248,104 @@ abstract class User extends BaseUser
     public function getArticle()
     {
         return $this->article;
+    }
+
+    /**
+     * Add users
+     *
+     * @param \LGM\AdministrationBundle\Entity\Articles $users
+     * @return User
+     */
+    public function addUser(\LGM\AdministrationBundle\Entity\Articles $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \LGM\AdministrationBundle\Entity\Articles $users
+     */
+    public function removeUser(\LGM\AdministrationBundle\Entity\Articles $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Add communictaions
+     *
+     * @param \LGM\AdministrationBundle\Entity\Communication $communictaions
+     * @return User
+     */
+    public function addCommunictaion(\LGM\AdministrationBundle\Entity\Communication $communictaions)
+    {
+        $this->communictaions[] = $communictaions;
+
+        return $this;
+    }
+
+    /**
+     * Remove communictaions
+     *
+     * @param \LGM\AdministrationBundle\Entity\Communication $communictaions
+     */
+    public function removeCommunictaion(\LGM\AdministrationBundle\Entity\Communication $communictaions)
+    {
+        $this->communictaions->removeElement($communictaions);
+    }
+
+    /**
+     * Get communictaions
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommunictaions()
+    {
+        return $this->communictaions;
+    }
+
+    /**
+     * Add ouvrages
+     *
+     * @param \LGM\AdministrationBundle\Entity\OuvrageScientifique $ouvrages
+     * @return User
+     */
+    public function addOuvrage(\LGM\AdministrationBundle\Entity\OuvrageScientifique $ouvrages)
+    {
+        $this->ouvrages[] = $ouvrages;
+
+        return $this;
+    }
+
+    /**
+     * Remove ouvrages
+     *
+     * @param \LGM\AdministrationBundle\Entity\OuvrageScientifique $ouvrages
+     */
+    public function removeOuvrage(\LGM\AdministrationBundle\Entity\OuvrageScientifique $ouvrages)
+    {
+        $this->ouvrages->removeElement($ouvrages);
+    }
+
+    /**
+     * Get ouvrages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOuvrages()
+    {
+        return $this->ouvrages;
     }
 }

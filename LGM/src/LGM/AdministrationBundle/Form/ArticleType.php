@@ -15,7 +15,14 @@ class ArticleType extends AbstractType
     {
         $builder
                 ->add('titre')
-                ->add('anneePublication')
+                -->add('anneePublication','date', [
+                'widget' => 'single_text',
+                'format' => 'dd-MM-yyyy',
+                'attr' => [
+                'class' => 'form-control input-inline datepicker',
+                'data-provide' => 'datepicker',
+                'data-date-format' => 'dd-mm-yyyy']]
+                )
                 ->add('nbAuteur')
                 ->add('valeur')
                 ->add('nomJournal')
@@ -25,13 +32,12 @@ class ArticleType extends AbstractType
                ->add('pp')
                ->add('brochure', new MediaType())
                 
-               ->add('user', 'entity', array(
+               ->add('users', 'entity', array(
                 'class' => 'LGM\UserBundle\Entity\User',
                 'property' => 'username',
                 'multiple' => true,
                 'expanded' => false,
-))
-                
+    ))            
                 ;
     }
     

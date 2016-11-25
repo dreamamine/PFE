@@ -28,6 +28,7 @@
                                     <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 246px;" aria-label="titre: activate to sort column descending" aria-sort="ascending">titre</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="annePublication: activate to sort column ascending">annePublication</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="nbAuteur: activate to sort column ascending">nbAuteur</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 268px;" aria-label="valeur: activate to sort column ascending">auteur</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 268px;" aria-label="valeur: activate to sort column ascending">valeur</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="edition: activate to sort column ascending">edition</th>
                                     
@@ -42,6 +43,13 @@
                                         <td>{{ ouvrageScientifique.titre }}</td>
                                         <td>{{ ouvrageScientifique.anneePublication|date("d/m/Y") }}</td>
                                         <td>{{ ouvrageScientifique.nbAuteur }}</td>
+                                        <td>
+                                            <ul>
+                                                {% for u in ouvrageScientifique.users %}
+                                                    <li>{{ u.nom }} {{ u.prenom }}</li>
+                                                    {% endfor %}
+                                            </ul>
+                                        </td>
                                         <td>{{ ouvrageScientifique.valeur }}</td>
                                         <td>{{ ouvrageScientifique.edition }}</td>
                                         

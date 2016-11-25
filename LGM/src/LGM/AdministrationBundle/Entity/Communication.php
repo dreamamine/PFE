@@ -101,11 +101,12 @@ class Communication
     private $brochure;
     
        
-    /**
-    * @ORM\ManyToMany(targetEntity="LGM\UserBundle\Entity\User", mappedBy="communications")
-    * 
-    */
+     /**
+     *@ORM\ManyToMany(targetEntity="LGM\UserBundle\Entity\User", inversedBy="communictaions", cascade={"persist", "remove"})
+     */
+    
     private $users;
+  
     
     
     public function __construct() {
