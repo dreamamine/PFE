@@ -8,11 +8,8 @@ class BilanController extends Controller
 {
     public function indexAction()
     {
-       
-        $users = $this->getDoctrine()->getManager();
-        $locationRepo = $users->getRepository('LGMUserBundle:User');
-        $nb = $locationRepo->getNb();
-
-        
+       $users = $this->getDoctrine()->getRepository("LGMUserBundle:User")->findAll();
+        return $this->render('LGMAdministrationBundle:Bilan:bilan.html.twig', array('users' => $users));
     }
 }
+
