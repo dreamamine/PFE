@@ -353,12 +353,12 @@ abstract class User extends BaseUser
         return $this->ouvrages;
     }
     
-    
-    public function count($type){
+  /**  
+   public function count($type){
  	return $this->articles->filter(function($a) use($type){
- 		if( $a->getIndxType() == $type ) 
-                    return $a;
- 	})
-                ->count()
+ 		if( $a->getIndxType() == $type ) return $a;
+ 	})->count()
     }
+   
+   */
 }
