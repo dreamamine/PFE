@@ -31,8 +31,7 @@ class ArticleType extends AbstractType
  		'Article IF' => 'Article IF',
  		'Article ID' => 'Article ID',
  		'Article N ID' => 'Article N ID',
- 		'communication ID' => 'communication ID',
- 		'communication N ID' => 'communication N ID',
+ 		
                 )
                 ))
                ->add('vol')
@@ -45,6 +44,7 @@ class ArticleType extends AbstractType
                 'property' => 'username',
                 'multiple' => true,
                 'expanded' => false,
+                'required' => false,
     ))            
                 ;
     }

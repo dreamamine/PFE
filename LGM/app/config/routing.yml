@@ -1,6 +1,3 @@
-lgm_administration_auteur:
-    resource: "@LGMAdministrationBundle/Resources/config/routing_auteur.yml"
-    prefix:   /Admin/Auteur/
 lgm_administration_structure:
     resource: "@LGMAdministrationBundle/Resources/config/routing_structure.yml"
     prefix:   /Admin/Structure/

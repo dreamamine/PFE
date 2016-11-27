@@ -55,7 +55,7 @@ abstract class User extends BaseUser
     private $groupe;
     
    /**
-     *@ORM\ManyToMany(targetEntity="LGM\AdministrationBundle\Entity\Article", inversedBy="users", cascade={"persist", "remove"})
+     *@ORM\ManyToMany(targetEntity="LGM\AdministrationBundle\Entity\Article", mappedBy="users", cascade={"persist", "remove"})
      */
     
     private $articles;
@@ -76,14 +76,11 @@ abstract class User extends BaseUser
     
     
     public function __construct() {
-        $this->articles = new ArrayCollection();
+       
     parent::__construct();
-    
+     $this->articles = new ArrayCollection();
     
 }
-
-
-
 
 
     /**
@@ -360,8 +357,7 @@ abstract class User extends BaseUser
  	})->count();
     }
    
-   
-    
+       
         
     
 }

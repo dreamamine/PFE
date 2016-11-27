@@ -131,25 +131,25 @@
     </thead>
  
     <tbody>
-        {% for article in articles %}
+        {% for user in users %}
         <tr>
-            <td>{{ article.user.groupe.nom }}</td>
-            <td>{{ article.user.nom ~ " " ~ article.user.prenom }}</td>
-            <td>{{ article.indxIF }}</td>
-            <td>{{ article.indx }}</td>
-            <td>{{ article.indxNID }}</td>
-            <td>{{ article.communicationID }}</td>
-            <td>{{ article.communicationNID }}</td>
-            <td>{{ article.these }}</td>
-            <td>{{ article.mastere }}</td>
+            <td>{{ user.groupe.nom }}</td>
+            <td>{{ user.nom ~ " " ~ user.prenom }}</td>
+            <td>{{ user.count('Article IF') }}</td>
+            <td>{{ user.count('Article ID') }}</td>
+            <td>{{ user.count('Article N ID') }}</td>
+            <td>{{ user.count('communication ID') }}</td>
+            <td>{{ user.count('communication N ID') }}</td>
+            
             <td>
-                {{ (8*article.indxIF) + (12*article.indx) + (6*article.indxNID) + (4*article.communicationID) + (4*article.these) + (2*article.mastere) }}
+                
             </td>
         </tr>
         {% endfor %}
     </tbody>
  
 </table>
+        
         
         
         
