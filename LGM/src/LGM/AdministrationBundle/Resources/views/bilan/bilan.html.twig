@@ -142,7 +142,7 @@
             <td>{{ user.count('communication N ID') }}</td>
             
             <td>
-                
+                {{ (8*user.count('Article IF')) + (12*user.count('Article ID')) + (6*user.count('Article N ID')) + (4*user.count('communication ID'))  }}
             </td>
         </tr>
         {% endfor %}

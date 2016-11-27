@@ -56,12 +56,13 @@ class Communication
      */
     private $nomCongrer;
     
-     /**
+    /**
      * @var string
      *
-     * @ORM\Column(name="indx", type="string", length=255)
+     * @ORM\Column(name="indxType", type="string", length=255)
      */
-    private $indx;
+    private $indxType;
+
 
     /**
      * @var string
@@ -408,5 +409,28 @@ class Communication
     public function getIndx()
     {
         return $this->indx;
+    }
+
+    /**
+     * Set indxType
+     *
+     * @param string $indxType
+     * @return Communication
+     */
+    public function setIndxType($indxType)
+    {
+        $this->indxType = $indxType;
+
+        return $this;
+    }
+
+    /**
+     * Get indxType
+     *
+     * @return string 
+     */
+    public function getIndxType()
+    {
+        return $this->indxType;
     }
 }
