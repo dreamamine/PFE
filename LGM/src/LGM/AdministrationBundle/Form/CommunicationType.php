@@ -27,7 +27,13 @@ class CommunicationType extends AbstractType
             ->add('nbAuteur')
             ->add('valeur')
             ->add('nomCongrer')
-            ->add('indx')
+            ->add('indxType', 'choice', array(
+                'choices' => array(
+ 		'Communication ID' => 'Communication ID',
+ 		'Communication N ID' => 'Communication N ID',
+ 		
+                )
+                ))
             ->add('vol')
             ->add('num')
             ->add('pp')

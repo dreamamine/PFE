@@ -28,6 +28,7 @@ class GroupeType extends AbstractType
                 'property' => 'username',
                 'multiple' => true,
                 'expanded' => false,
+                
 ))
                 
                 ;

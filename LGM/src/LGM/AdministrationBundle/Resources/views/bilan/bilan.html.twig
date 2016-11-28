@@ -1,175 +1,100 @@
+{% extends "LGMAdministrationBundle::layout.html.twig" %}
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>Menu HTML / Javascript : Aperçu</title>
-<!-- nettuts -->
-<!-- traduit et adapté par outils-web.com -->
-<!-- chargement des feuilles de style -->
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+        
+        
+     
 
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(function () {
+            $("#list").DataTable();
+        });
+    </script>
+{% endblock %}
 
+{% block page_body %}
+    <div class="box box-info box-solid">
+        <div class="box-header with-border">
+            <h3 class="box-title text-uppercase">Liste des article </h3>
+            <span class="pull-right">
+                <a href="{{ path('new_article') }}" class="btn btn-success text-uppercase"><i class="fa fa-plus"></i> Ajouter</a>
+            </span>
+        </div>
 
+        <div class="box-body">
+            <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="list"  class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 246px;" aria-label="titre: activate to sort column descending" aria-sort="ascending">Groupe</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="annePublication: activate to sort column ascending">User</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="nbAuteur: activate to sort column ascending">Articles IF</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 268px;" aria-label="valeur: activate to sort column ascending">Articles ID</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="nomJournal: activate to sort column ascending">Article NID</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 212px;" aria-label="Télècharger: activate to sort column ascending">Communication ID</th>
 
-<style>
-        
-               
-        /* partie positionnement et déco */
-        #menu a { 
-            display:block; 
-            color: #fff; 
-            text-decoration:none;
-        }
-        #menu > li,
-        #menu > li li {
-            position: relative;
-            display:inline-block;
-            width: 110px;
-            padding: 6px 15px;
-            background-color: #777;
-            background-image: linear-gradient(#aaa, #888 50%, #777 50%,#999);
-        }
-        #menu > li li { background: transparent none; }
-        #menu > li li a { color: #444; }
-        #menu > li li:hover { background:#eee; }
-        #menu > li:first-child {
-            border-right: 1px solid #777;
-            border-radius: 8px 0 0 8px;
-        }
-        #menu > li + li {
-            border-left: 1px solid #aaa;
-            border-right: 1px solid #777;
-        }
-        #menu > li:last-child {
-            border-right: 0;
-            border-left: 1px solid #aaa;
-            border-radius: 0 8px 8px 0 ;
-        }
-        #menu > li:hover {
-            background-color: #999;
-            background-image: linear-gradient(#ccc, #aaa 50%, #999 50%,#bbb);
-        }
-        /* (presque) fin de la partie positionnement/déco */
-        /* dans cette déclaration, on fixe le max-height */
-        #menu ul {
-            position: absolute;
-            top: 2em; left: 0;
-            max-height:0em;	
-            margin: 0; padding: 0;
-            background-color: #ddd;
-            background-image: linear-gradient(#fff,#ddd);
-            overflow: hidden;
-            transition: 1s max-height 0.3s;
-            border-radius: 0 0 8px 8px;
-        }
-        /* ici on change la valeur de max-height au :hover */
-        #menu > li:hover ul {
-            /* à adapter, le minimum est le meilleur mais voyez large 😉 */
-            max-height: 13em;
-        }
-        
-        
-        
-        
-    </style>
-
-</head>
-    
-      
-    
-    
-    
-    
-    <body>
-        <ul id="menu">
-            <li><a href="#">Menu 1</a>
-                <ul>
-                    <li><a href="#">Level 1.1</a></li>
-                    <li><a href="#">Level 1.2</a></li>
-                </ul>
-            </li><li><a href="#">Menu 2</a>
-                <ul>
-                    <li><a href="#">Level 2.1</a></li>
-                    <li><a href="#">Level 2.2</a></li>
-                    <li><a href="#">Level 2.3</a></li>
-                    <li><a href="#">Level 2.4</a></li>
-                </ul>
-            </li><li><a href="#">Menu 3</a>
-                <ul>
-                    <li><a href="#">Level 3.1</a></li>
-                    <li><a href="#">Level 3.2</a></li>
-                    <li><a href="#">Level 3.3</a></li>
-                </ul>
-            </li><li><a href="#">Menu 4</a>
-               <ul>
-                    <li><a href="#">Level 4.1</a></li>
-                    <li><a href="#">Level 4.2</a></li>
-                    <li><a href="#">Level 4.3</a></li>
-               </ul>
-           </li>
-           
-       </ul>
-        
-        
-        
-        
-        
-        
-        
-        <table class="table">
-    <thead>
-        <th>Groupe</th>
-        <th>User</th>
-        <th>Article IF</th>
-        <th>Article ID</th>
-        <th>Article N ID</th>
-        <th>Communication ID</th>
-        <th>Communication N ID</th>
-        <th>Thèse</th>
-        <th>Mastère</th>
-        <th>IP</th>
-    </thead>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 154px;" aria-label="Actions: activate to sort column ascending">Communication NID</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 154px;" aria-label="Actions: activate to sort column ascending"> IP</th>
+                                </tr>
+                            </thead>
  
-    <tbody>
-        {% for user in users %}
-        <tr>
-            <td>{{ user.groupe.nom }}</td>
-            <td>{{ user.nom ~ " " ~ user.prenom }}</td>
-            <td>{{ user.count('Article IF') }}</td>
-            <td>{{ user.count('Article ID') }}</td>
-            <td>{{ user.count('Article N ID') }}</td>
-            <td>{{ user.count('communication ID') }}</td>
-            <td>{{ user.count('communication N ID') }}</td>
-            
-            <td>
-                {{ (8*user.count('Article IF')) + (12*user.count('Article ID')) + (6*user.count('Article N ID')) + (4*user.count('communication ID'))  }}
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
- 
-</table>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-</body>
+            <tbody>
+                {% for grp in groupes %}
+                    <tr>
+                        <td>{{ grp.nom }}</td>
+                        
+                    {% for user in grp.users %}
+                                                                        
+                                    <td> 
+                                    <li>
+                                        {{ user.nom ~ " " ~ user.prenom }}
+                                    </li>
+                                    
+                                    <td>{{ user.countA('Article IF') }}</td>
+                                    <td>{{ user.countA('Article ID') }}</td>
+                                    <td>{{ user.countA('Article N ID') }}</td>
+                                    <td>{{ user.countC('Communication ID') }}</td>
+                                    <td>{{ user.countC('Communication N ID') }}</td>
+                                    </td>
+                                    
+                                    <tr>
+                                    </tr>
+                                    <td> </td>
+                    {% endfor %}
+                   </tr>    
+                     
+                {% endfor %}
 
-</html>
+            </tbody>
+ 
+
+                           
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+        
+        
+        
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+ 

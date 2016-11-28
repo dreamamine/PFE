@@ -1,8 +1,14 @@
 index_chercheurJunior:
     path:     /index
     defaults: { _controller: LGMUserBundle:Chercheur_Junior:index }
+new_chercheurJunior:
+    path:     /new
+    defaults: { _controller: LGMUserBundle:Chercheur_Junior:new }
+edit_chercheurJunior:
+    path:     /edit/{token}
+    defaults: { _controller: LGMUserBundle:Chercheur_Junior:edit }
 delete_chercheurJunior:
-    path:     /delete/{salt}
+    path:     /delete/{token}
     defaults: { _controller: LGMUserBundle:Chercheur_Junior:delete }
 
 active_chercheurJunior:

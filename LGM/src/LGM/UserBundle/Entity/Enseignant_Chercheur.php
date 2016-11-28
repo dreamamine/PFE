@@ -122,7 +122,18 @@ class Enseignant_Chercheur extends User
     private $etabDepObtenu;
 
     
-   
+   /**
+     * @var string
+     *
+     * @ORM\Column(name="token", type="string", length=255, nullable=false, unique=true)
+     */
+    private $token;
+    
+    
+    public function __construct() {
+        parent::__construct();
+        $this->token = base_convert(sha1(uniqid(mt_rand(1, 999), true)),16, 36);
+    }
 
     /**
      * Get id
@@ -436,5 +447,28 @@ class Enseignant_Chercheur extends User
     public function getEtabDepObtenu()
     {
         return $this->etabDepObtenu;
+    }
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     * @return Enseignant_Chercheur
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string 
+     */
+    public function getToken()
+    {
+        return $this->token;
     }
 }

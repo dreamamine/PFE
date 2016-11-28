@@ -50,7 +50,7 @@ abstract class User extends BaseUser
     
     /**
      *@ORM\ManyToOne(targetEntity="LGM\AdministrationBundle\Entity\Groupe", inversedBy="users", cascade={"persist", "remove"})
-     */
+    */
     
     private $groupe;
     
@@ -61,7 +61,7 @@ abstract class User extends BaseUser
     private $articles;
     
     /**
-     *@ORM\ManyToMany(targetEntity="LGM\AdministrationBundle\Entity\Communication", inversedBy="users", cascade={"persist", "remove"})
+     *@ORM\ManyToMany(targetEntity="LGM\AdministrationBundle\Entity\Communication", mappedBy="users", cascade={"persist", "remove"})
      */
     
     private $communictaions;
@@ -351,13 +351,17 @@ abstract class User extends BaseUser
     }
     
     
-   public function count($type){
+   public function countA($type){
  	return $this->articles->filter(function($a) use($type){
  		if( $a->getIndxType() == $type ) return $a;
  	})->count();
     }
    
-       
+    public function countC($type){
+ 	return $this->communictaions->filter(function($a) use($type){
+ 		if( $a->getIndxType() == $type ) return $a;
+ 	})->count();
+    }   
         
     
 }

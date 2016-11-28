@@ -56,7 +56,6 @@ class Groupe
         
     /**
      *@ORM\OneToMany(targetEntity="LGM\UserBundle\Entity\User", mappedBy="groupe", cascade={"persist", "remove"})
-     *@ORM\JoinColumn(nullable=false)
     */
     private $users;
     

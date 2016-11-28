@@ -31,6 +31,9 @@ lgm_user_doctorant:
 lgm_user_eleve_Mastere:
     resource: "@LGMUserBundle/Resources/config/routing_eleve_Mastere.yml"
     prefix:   /Admin/Eleve_Mastere
+lgm_user_chercheurJunior:
+    resource: "@LGMUserBundle/Resources/config/routing_chercheurJunior.yml"
+    prefix:   /Admin/Chercheur_Junior
 lgm_user_enseignant_Chercheur:
     resource: "@LGMUserBundle/Resources/config/routing_enseignant_Chercheur.yml"
     prefix:   /Admin/Enseignant_Chercheur

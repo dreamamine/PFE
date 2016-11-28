@@ -140,7 +140,18 @@ class Chercheur_Junior extends User
      */
     private  $etabInscrip2;
 
+   /**
+     * @var string
+     *
+     * @ORM\Column(name="token", type="string", length=255, nullable=false, unique=true)
+     */
+    private $token;
     
+    
+    public function __construct() {
+        parent::__construct();
+        $this->token = base_convert(sha1(uniqid(mt_rand(1, 999), true)),16, 36);
+    } 
     
 
     /**
@@ -526,5 +537,28 @@ class Chercheur_Junior extends User
     public function getCINChercheurJunior()
     {
         return $this->cINChercheur_Junior;
+    }
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     * @return Chercheur_Junior
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string 
+     */
+    public function getToken()
+    {
+        return $this->token;
     }
 }

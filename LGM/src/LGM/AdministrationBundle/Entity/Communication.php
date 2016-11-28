@@ -102,7 +102,7 @@ class Communication
     private $brochure;
     
        
-     /**
+    /**
      *@ORM\ManyToMany(targetEntity="LGM\UserBundle\Entity\User", inversedBy="communictaions", cascade={"persist", "remove"})
      */
     
@@ -388,29 +388,7 @@ class Communication
         return $this->users;
     }
 
-    /**
-     * Set indx
-     *
-     * @param string $indx
-     * @return Communication
-     */
-    public function setIndx($indx)
-    {
-        $this->indx = $indx;
-
-        return $this;
-    }
-
-    /**
-     * Get indx
-     *
-     * @return string 
-     */
-    public function getIndx()
-    {
-        return $this->indx;
-    }
-
+    
     /**
      * Set indxType
      *
