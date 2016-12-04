@@ -378,7 +378,7 @@ class __TwigTemplate_412cf9a779df769f10bb53251aa62fbf93f13027278f479bede9a93d91b
 /*         {% block summary %}*/
 /*             {% if profile is defined %}*/
 /*                 {% set status_code = ('request' in profile.collectors|keys) ? profile.getcollector('request').statuscode|default(0) : 0 %}*/
-/*                 {% set css_class = status_code > 399 ? 'status-error' : status_code > 299 ? 'status-warning' : 'status-success' %}*/
+/*                 {% set css_class = status_code > 399 ? 'status-error' : status_code > 299 ? 'status-warning' : '{tatus-success' %}*/
 /* */
 /*                 <div class="status {{ css_class }}">*/
 /*                     <div class="container">*/
