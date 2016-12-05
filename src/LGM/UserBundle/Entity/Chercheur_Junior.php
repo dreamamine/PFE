@@ -29,14 +29,14 @@ class Chercheur_Junior extends User
      *
      * @ORM\Column(name="qualite", type="string", length=255)
      */
-    private  $qualite;
+    public  $qualite;
     
    /**
      * @var int
      * 
      * @ORM\Column(name="cINChercheur_Junior", type="integer", nullable=false)
      */
-    private  $cINChercheur_Junior;
+    public  $cINChercheur_Junior;
 
 
 
@@ -45,42 +45,42 @@ class Chercheur_Junior extends User
      * 
      * @ORM\Column(name="nomJeuneFille", type="string", nullable=true)
      */
-    private  $nomJeuneFille;
+    public  $nomJeuneFille;
 
     /**
      * @var string $dateNaiss
      *
      * @ORM\Column(name="dateNaiss", type="date", nullable=true)
      */
-    private  $dateNaiss;
+    public  $dateNaiss;
 
     /**
      * @var string
      * 
      * @ORM\Column(name="lieuNaiss", type="string", nullable=true)
      */
-    private  $lieuNaiss;
+    public  $lieuNaiss;
 
     /**
      * @var string
      * 
      * @ORM\Column(name="sexe", type="string", nullable=true)
      */
-    private  $sexe;
+    public  $sexe;
 
     /**
      * @var int
      * 
      * @ORM\Column(name="telMob", type="integer", nullable=true)
      */
-    private  $telMob;
+    public  $telMob;
 
     /**
      * @var int
      * 
      *@ORM\Column(name="telFixe", type="integer", nullable=true)
      */
-    private  $telFixe;
+    public  $telFixe;
 
 
     /**
@@ -88,65 +88,79 @@ class Chercheur_Junior extends User
      * 
      * @ORM\Column(name="dernierDepObtenu", type="string", nullable=true)
      */
-    private  $dernierDepObtenu;
+    public  $dernierDepObtenu;
 
     /**
      * @var \DateTime
      * 
      * @ORM\Column(name="dateDepObtenu", type="date", nullable=true)
      */
-    private  $dateDepObtenu;
+    public  $dateDepObtenu;
 
     /**
      * @var string
      * 
      * @ORM\Column(name="etabDepObtenu", type="string", nullable=true)
      */
-    private  $etabDepObtenu;
+    public  $etabDepObtenu;
 
     /**
-     * @var string
-     * 
-     * @ORM\Column(name="intituleSujet", type="string", nullable=true)
+     * @ORM\OneToOne(targetEntity="LGM\UserBundle\Entity\Sujet", cascade={"persist","remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private  $intituleSujet;
+    
+    public  $intituleSujet;
 
     /**
      * @var int
      * 
      * @ORM\Column(name="tauxAvancement", type="integer", nullable=true)
      */
-    private  $tauxAvancement;
+    public  $tauxAvancement;
     
-        
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="encadrant", type="string", length=255)
+     */
+    public  $encadrant;
+    
+   /**
+     * @var string
+     *
+     * @ORM\Column(name="coencadrant", type="string", length=255)
+     */
+    public  $coencadrant;    
     /**
      * @var \DateTime
      * 
      * @ORM\Column(name="anneePremierInscrip", type="date", nullable=true)
      */
-    private  $anneePremierInscrip;
+    public  $anneePremierInscrip;
 
     /**
      * @var string
      * 
      * @ORM\Column(name="etbInscrip", type="string", nullable=true)
      */
-    private  $etbInscrip;
+    public  $etbInscrip;
 
     /**
      * @var string
      * 
      * @ORM\Column(name="etabInscrip2", type="string", nullable=true)
      */
-    private  $etabInscrip2;
+    public  $etabInscrip2;
 
    /**
      * @var string
      *
      * @ORM\Column(name="token", type="string", length=255, nullable=false, unique=true)
      */
-    private $token;
+    public $token;
     
+   
+ 
     
     public function __construct() {
         parent::__construct();
@@ -166,8 +180,6 @@ class Chercheur_Junior extends User
 
    
     
-
-  
 
     /**
      * Set nomJeuneFille
@@ -560,5 +572,74 @@ class Chercheur_Junior extends User
     public function getToken()
     {
         return $this->token;
+    }
+
+    /**
+     * Set encadrant
+     *
+     * @param string $encadrant
+     * @return Chercheur_Junior
+     */
+    public function setEncadrant($encadrant)
+    {
+        $this->encadrant = $encadrant;
+
+        return $this;
+    }
+
+    /**
+     * Get encadrant
+     *
+     * @return string 
+     */
+    public function getEncadrant()
+    {
+        return $this->encadrant;
+    }
+
+    /**
+     * Set coencadrant
+     *
+     * @param string $coencadrant
+     * @return Chercheur_Junior
+     */
+    public function setCoencadrant($coencadrant)
+    {
+        $this->coencadrant = $coencadrant;
+
+        return $this;
+    }
+
+    /**
+     * Get coencadrant
+     *
+     * @return string 
+     */
+    public function getCoencadrant()
+    {
+        return $this->coencadrant;
+    }
+
+    /**
+     * Set sujet
+     *
+     * @param \LGM\UserBundle\Entity\Sujet $sujet
+     * @return Chercheur_Junior
+     */
+    public function setSujet(\LGM\UserBundle\Entity\Sujet $sujet)
+    {
+        $this->sujet = $sujet;
+
+        return $this;
+    }
+
+    /**
+     * Get sujet
+     *
+     * @return \LGM\UserBundle\Entity\Sujet 
+     */
+    public function getSujet()
+    {
+        return $this->sujet;
     }
 }

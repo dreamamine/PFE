@@ -16,13 +16,8 @@ class StructureType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-                ->add('codeStructure', 'number', array(
-                'label' => 'Code De La structure',
-                'required' => true,
-                'attr' => array(
-                    'class' => 'form-control'
-                ),
-                    ))
+                ->add('codeStructure')
+                   
                 
             
                 ->add('universite')

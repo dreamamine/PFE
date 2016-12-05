@@ -22,7 +22,7 @@ class Enseignant_ChercheurType extends AbstractType
             ->add('nomJeuneFille')
             ->add('dateNaiss', 'date')
             ->add('lieuNaiss')
-            ->add('sexe')
+            ->add('sexe','choice', array('choices' => array('F'=>'Féminin','M'=>'Masculin')))
             ->add('etablisement')
             ->add('fonction')
             ->add('telMob')

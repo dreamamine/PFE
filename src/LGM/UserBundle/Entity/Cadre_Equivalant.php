@@ -156,7 +156,7 @@ class Cadre_Equivalant
     
     /**
      * @ORM\OneToOne(targetEntity="LGM\UserBundle\Entity\Sujet", cascade={"persist","remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     
     private $sujet;

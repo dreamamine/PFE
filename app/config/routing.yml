@@ -1,3 +1,13 @@
+root:
+    pattern: /login
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /
+        permanent: true
+frontend:
+    resource: "@FrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
 lgm_administration_structure:
     resource: "@LGMAdministrationBundle/Resources/config/routing_structure.yml"
     prefix:   /Admin/Structure/
@@ -28,6 +38,9 @@ lgm_user_cadre_Equivalant:
 lgm_user_doctorant:
     resource: "@LGMUserBundle/Resources/config/routing_doctorant.yml"
     prefix:   /Admin/Doctorant
+lgm_user_sujet:
+    resource: "@LGMUserBundle/Resources/config/routing_sujet.yml"
+    prefix:   /Admin/Sujet       
 lgm_user_eleve_Mastere:
     resource: "@LGMUserBundle/Resources/config/routing_eleve_Mastere.yml"
     prefix:   /Admin/Eleve_Mastere
@@ -43,9 +56,7 @@ lgm_user_resigster:
 lgm_bilan:
     resource: "@LGMAdministrationBundle/Resources/config/routing_bilan.yml"
     prefix:   /Admin/Bilan/
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

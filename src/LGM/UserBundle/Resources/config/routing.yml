@@ -5,7 +5,7 @@ fos_enseignant_chercheur_registration:
 fos_chercheur_junior_registration:
     pattern:  /inscription/Chercheur_Junior
     defaults: { _controller: LGMUserBundle:RegistrationChercheur_Junior:register }
-  
+
 fos_admin_registration:
     pattern:  /inscription/Admin
     defaults: { _controller: LGMUserBundle:RegistrationAdmin:register }

@@ -1,8 +1,8 @@
 {% extends "LGMAdministrationBundle::layout.html.twig" %}
 
-        
-        
-     
+
+
+
 
 {% block javascripts %}
     {{ parent() }}
@@ -16,7 +16,7 @@
 {% block page_body %}
     <div class="box box-info box-solid">
         <div class="box-header with-border">
-            <h3 class="box-title text-uppercase">Liste des article </h3>
+            <h3 class="box-title text-uppercase">Bilan Production Scientifique </h3>
             <span class="pull-right">
                 <a href="{{ path('new_article') }}" class="btn btn-success text-uppercase"><i class="fa fa-plus"></i> Ajouter</a>
             </span>
@@ -40,38 +40,71 @@
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 154px;" aria-label="Actions: activate to sort column ascending"> IP</th>
                                 </tr>
                             </thead>
- 
-            <tbody>
-                {% for grp in groupes %}
-                    <tr>
-                        <td>{{ grp.nom }}</td>
-                        
-                    {% for user in grp.users %}
-                                                                        
-                                    <td> 
-                                    <li>
-                                        {{ user.nom ~ " " ~ user.prenom }}
-                                    </li>
-                                    
-                                    <td>{{ user.countA('Article IF') }}</td>
-                                    <td>{{ user.countA('Article ID') }}</td>
-                                    <td>{{ user.countA('Article N ID') }}</td>
-                                    <td>{{ user.countC('Communication ID') }}</td>
-                                    <td>{{ user.countC('Communication N ID') }}</td>
-                                    </td>
-                                    
+
+                            <tbody>
+                                {% for grp in groupes %}
                                     <tr>
-                                    </tr>
-                                    <td> </td>
-                    {% endfor %}
-                   </tr>    
-                     
-                {% endfor %}
+                                        <td>{{ grp.nom }}</td>
+                                        <td>    
+                                            {% for user in grp.users %}                                                                        
 
-            </tbody>
- 
+                                                {{ user.nom ~ " " ~ user.prenom }}<br>
 
-                           
+                                            {% endfor %}
+                                        </td>
+                                        <td>
+                                            {% for user in grp.users %}   
+
+                                                {{ user.countA('Article IF') }}<br>
+
+                                            {% endfor %}
+
+                                        </td>
+                                        <td>
+                                            {% for user in grp.users %}
+
+                                                {{ user.countA('Article ID') }}<br>
+
+                                            {% endfor %}
+                                        </td>
+                                        <td>
+                                            {% for user in grp.users %}
+
+                                                {{ user.countA('Article N ID') }}<br>
+
+                                            {% endfor %}
+                                        </td>
+                                        <td>
+                                            {% for user in grp.users %}
+
+                                                {{ user.countC('Communication ID') }}<br>
+
+                                            {% endfor %}
+                                        </td>
+                                        <td>
+                                            {% for user in grp.users %}
+
+                                                {{ user.countC('Communication N ID') }}<br>
+
+                                            {% endfor %}
+                                        </td>
+                                        <td>
+                                            {% for user in grp.users %}
+
+                                                {{ 2* user.countA('Article ID')+2* user.countC('Communication N ID') }}<br>
+
+                                            {% endfor %}
+                                        </td>
+                                        
+                                        
+                                        
+                                        
+                                    </tr>            
+                                {% endfor %}
+                            </tbody>
+
+
+
                         </table>
                     </div>
                     <!-- /.box-body -->
@@ -83,18 +116,17 @@
 
 {% endblock %}
 
-        
-        
-        
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

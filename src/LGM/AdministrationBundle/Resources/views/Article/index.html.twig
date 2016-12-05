@@ -14,7 +14,9 @@
         <div class="box-header with-border">
             <h3 class="box-title text-uppercase">Liste des article </h3>
             <span class="pull-right">
+                {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('new_article') }}" class="btn btn-success text-uppercase"><i class="fa fa-plus"></i> Ajouter</a>
+                {% endif %}
             </span>
         </div>
 

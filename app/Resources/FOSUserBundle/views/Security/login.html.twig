@@ -1,60 +1,47 @@
-{% extends "::layout_login.html.twig" %}
+{% if app.request.attributes.get('_route') == '' %}
+{% set template = 'layout.html.twig' %}
+{% else %}
+{% set template = 'layout_login.html.twig' %}
 
+{% endif %}
+{% extends template %}
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-    <body> 
-        <div class="top-content">
-            
-            
-            
-            <div class="inner-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Ecole Nationale d'Ingénieurs de Monastir</strong></h1>                         
-                            <h1> Laboratoire de Génie Mécanique</h1>  
-                          
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                  <div id="wrapper">
+                    <div id="login" class="animate form">
+
+                                
+
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+	<h1>Log in</h1> 
+
+<p>
+    <label for="username" class="uname" data-icon="u">{{ 'security.login.username'|trans }}</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+	</p>
+<p>
+    <label for="password" class="youpasswd" data-icon="p">{{ 'security.login.password'|trans }}</label>
+    <input type="password" id="password" name="_password" required="required" />
+	</p>
+<p class="keeplogin"> 
+    <input type="checkbox" id="remember_me loginkeeping" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+	</p>
+
+    <p class="login button"> <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" /></p>
+</form>
+
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box">
-                            <div class="form-top">
-                                <div class="form-top-left">
-                                    <h3>Login to our site</h3>
-                                    <p>Enter your username and password to log on:</p>
-                                </div>
-                                <div class="form-top-right">
-                                    <i class="fa fa-lock"></i>
-                                </div>
-                            </div>
-                            <div class="form-bottom">
-                                <form role="form" action="{{ path("fos_user_security_check") }}" method="post" class="login-form">
-
-                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-
-                                    <div class="form-group">	
-                                        <label class="sr-only" for="username">{{ 'security.login.username'|trans }}</label>
-                                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-username form-control" id="form-username" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="sr-only" for="password">{{ 'security.login.password'|trans }}</label>
-                                        <input type="password" id="password" name="_password" required="required"  placeholder="Password..." class="form-password form-control" id="form-password" />
-                                    </div> 
-                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                                    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-                                    <button type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn" />Sign in!</button>
-                                </form>
-                            </div> 
-                        </div> 
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </body>
+                  
 {% endblock fos_user_content %}

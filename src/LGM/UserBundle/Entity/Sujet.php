@@ -28,33 +28,6 @@ class Sujet
      */
     private $title;
      
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="directeur", type="string", length=255)
-     */
-    private $directeur;
-    
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="codirecteur", type="string", length=255)
-     */
-    private $codirecteur;
-    
-    /**
-     * @var string
-     * 
-     * @ORM\Column(name="etbInscrip", type="string", nullable=true)
-     */
-    private  $etbInscrip;
-
-    /**
-     * @var string
-     * 
-     * @ORM\Column(name="etabInscrip2", type="string", nullable=true)
-     */
-    private  $etabInscrip2;
     
     /**
      * @var string
@@ -244,5 +217,13 @@ class Sujet
     public function getEtat()
     {
         return $this->etat;
+    }
+    
+    
+    public function __toString()
+    {
+      
+        return $this->getTitle();
+        
     }
 }

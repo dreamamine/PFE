@@ -1,0 +1,4 @@
+services:
+#    frontend.example:
+#        class: LGM\FrontendBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

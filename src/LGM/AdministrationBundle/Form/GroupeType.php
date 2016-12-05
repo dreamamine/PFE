@@ -16,20 +16,23 @@ class GroupeType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('indiceproduction')
+         
               
             ->add('theme', 'entity', array('label' => 'nom De la theme',
                                           'class' => 'LGM\AdministrationBundle\Entity\Theme',
                                           'property' => 'nom'
           
         ))
-            ->add('users', 'entity', array(
-                'class' => 'LGM\UserBundle\Entity\User',
-                'property' => 'username',
-                'multiple' => true,
-                'expanded' => false,
-                
-))
+            ->add('users', 'entity', array('label' => 'Membres',
+                                          'required' => true,
+                                          'expanded' => false,
+                                          'multiple' => true,
+                                          'class' => 'LGM\UserBundle\Entity\User',
+                                          'property' => function($user) {
+                                                        return  $user->getPrenom().' '. $user->getNom();
+                                                       }
+                                                 ))
+
                 
                 ;
     }

@@ -1,0 +1,12 @@
+index_sujet:
+    path:     /index
+    defaults: { _controller: LGMUserBundle:Sujet:index }
+new_sujet:
+    path:     /new
+    defaults: { _controller: LGMUserBundle:Sujet:new }
+edit_sujet:
+    path:     /edit/{token}
+    defaults: { _controller: LGMUserBundle:Sujet:edit }
+delete_sujet:
+    path:     /delete/{token}
+    defaults: { _controller: LGMUserBundle:Sujet:delete }

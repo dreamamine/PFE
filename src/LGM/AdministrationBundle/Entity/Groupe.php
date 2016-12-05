@@ -28,12 +28,7 @@ class Groupe
      */
     private $nom;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="indiceproduction", type="integer")
-     */
-    private $indiceproduction;
+  
 
     /**
      * @var string
@@ -134,28 +129,7 @@ class Groupe
 
    
 
-    /**
-     * Set indiceproduction
-     *
-     * @param integer $indiceproduction
-     * @return Groupe
-     */
-    public function setIndiceproduction($indiceproduction)
-    {
-        $this->indiceproduction = $indiceproduction;
-
-        return $this;
-    }
-
-    /**
-     * Get indiceproduction
-     *
-     * @return integer 
-     */
-    public function getIndiceproduction()
-    {
-        return $this->indiceproduction;
-    }
+    
 
     /**
      * Set theme

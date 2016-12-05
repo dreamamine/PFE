@@ -29,7 +29,9 @@ class Cadre_EquivalantType extends AbstractType
             ->add('dernierDepObtenu')
             ->add('dateDepObtenu', 'date')
             ->add('etabDepObtenu')
-            ->add('intituleSujet')
+            ->add('intituleSujet','entity', array('label' => 'nom  Sujet',
+                                          'class' => 'LGM\UserBundle\Entity\Sujet',
+                                          'property' => 'title'))
             ->add('tauxAvancement')
             ->add('anneePremierInscrip', 'date')
             ->add('etbInscrip')

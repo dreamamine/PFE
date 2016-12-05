@@ -1,15 +1,15 @@
 {% extends "LGMUserBundle::layout.html.twig" %}
-
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block page_body %}
 
-	
+	<div class="well">
                 <form action="{{ path('fos_enseignant_chercheur_registration') }}"   class="form-horizontal" {{ form_enctype(form) }} method="POST">
         
              {{ form_widget(form) }}
         <div>
-            <input type="submit" value="{{ 'registration.submit'|trans }}" />
+            <input class="btn btn-warning" type="submit" value="{{ 'registration.submit'|trans }}" />
         </div>
   
     </form>
-		
+		</div>
 {% endblock %}

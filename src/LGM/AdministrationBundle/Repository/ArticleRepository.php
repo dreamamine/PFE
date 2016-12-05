@@ -12,14 +12,5 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
-    public function nombreArticles()
-    {
-        $qb = $this->createQueryBuilder('a');
-
-        $qb->select('COUNT(a.id) AS nombre')
-            ->where('a.actif = true')
-            ->orderBy('a.datePublication', 'DESC');
-
-        return $qb->getQuery()->getSingleScalarResult();
-    }
+   
 }

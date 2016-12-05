@@ -272,7 +272,7 @@
               <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
-                    <a href="{{path('fos_user_profile_edit')}}">Modifier profile</a>
+               <!--      <a href="{{path('fos_user_profile_edit')}}">Modifier profile</a> -->
                   </div>
                   <div class="col-xs-4 text-center">
                     <a href="{{path('fos_user_change_password')}}">Modifier mot du passe</a>
@@ -555,6 +555,67 @@
                 </ul>
             </li>
             
+            <li class="treeview active">
+                <a href="#">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <span>Sujet</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu menu-open" style="display: none;">
+                    <li class="">
+                        <a href="#">
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                           Sujet Thèse
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu menu-open" style="display: none;">
+                            <li>
+                                <a href="{{path ('new_sujet')}}">
+                                   <i class="fa fa-plus"></i>
+                                    Ajouter
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{path ('index_sujet')}}">
+                                    <i class="fa fa-circle-o"></i>
+                                    Lister
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#">
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                           Sujet Mastère
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu menu-open" style="display: none;">
+                            <li>
+                                <a href="#">
+                                   <i class="fa fa-plus"></i>
+                                    Ajouter
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-circle-o"></i>
+                                    Lister
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    
+
+                </ul>
+            </li>
             
             
              

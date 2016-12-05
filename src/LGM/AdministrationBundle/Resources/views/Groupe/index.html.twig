@@ -26,9 +26,9 @@
                             <thead>
                                 <tr role="row">
                                     <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 246px;" aria-label="nom: activate to sort column descending" aria-sort="ascending">Nom</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="Indice de Production: activate to sort column ascending">Indice de Production</th>
-                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="Indice de Production: activate to sort column ascending">Membre</th>
                                     
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 301px;" aria-label="Indice de Production: activate to sort column ascending">Membre</th>
+
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 154px;" aria-label="Actions: activate to sort column ascending">Action</th>
                                 </tr>
                             </thead>
@@ -36,8 +36,8 @@
                                 {% for groupe in groupes %}
                                     <tr>
                                         <td>{{ groupe.nom }}</td>
-                                        <td>{{ groupe.indiceproduction }}</td>
-                                        
+                                     
+
                                         <td>
                                             <ul>
                                                 {% for u in groupe.users %}
@@ -46,7 +46,7 @@
                                             </ul>
                                         </td>
 
-                                        
+
                                         <td>
                                             <a href="{{ path('edit_groupe', { 'token': groupe.token})}}" <i class="btn btn-info"><i class="fa fa-pencil"></i></a>
 
@@ -62,9 +62,9 @@
                             <tfoot>
                                 <tr>
                                     <th rowspan="1" colspan="1">Nom </th>
-                                    <th rowspan="1" colspan="1">Indice de Production</th>
+                                 
                                     <th rowspan="1" colspan="1">Membre</th>
-                                   
+
                                     <th rowspan="1" colspan="1">Action</th>
                                 </tr>
                             </tfoot>

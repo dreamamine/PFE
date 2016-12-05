@@ -1,5 +1,5 @@
 {% extends "LGMUserBundle::layout.html.twig" %}
-{% block title %}FCBookingBundle:Categorie:index{% endblock %}
+{% block title %}{% endblock %}
 
 {% block page_body %}
     <center> <h1> <u></u> </h1><br> </center>
@@ -36,10 +36,10 @@
 							  </tr>
 						  </thead>   
 						  <tbody>
-					 {% for admin in admin %}
+					 {% for admin in admins %}
 							<tr>
-								<td> {{admin.nom}}</td>
-                                                                    <td class="center"> {{admin.prenom}} </td>
+								<td> {{fos_admin.id}}</td>
+                                                                    <td class="center"> {{fos_admin.prenom}} </td>
 								   <td class="center"> {{admin.adresse.adresse}}{{admin.adresse.ville.nom}},{{admin.adresse.cp}} </td>
                                                                       <td class="center"> {{admin.email}} </td>
                                                                          <td class="center"> {{admin.username}} </td>

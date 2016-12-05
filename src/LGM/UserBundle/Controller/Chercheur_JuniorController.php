@@ -29,7 +29,7 @@ class Chercheur_JuniorController extends Controller
                  $em = $this->getDoctrine()->getManager();
                  $em->persist($chercheur_Junior);
                  $em->flush();
-                 return $this->redirect($this->generateUrl('index_chercheur_Junior'));
+                 return $this->redirect($this->generateUrl('index_chercheurJunior'));
                          
              }
          }
@@ -49,7 +49,7 @@ class Chercheur_JuniorController extends Controller
                 
                  $em->persist($chercheur_Junior);
                  $em->flush();
-                 return $this->redirect($this->generateUrl('index_chercheur_Junior'));
+                 return $this->redirect($this->generateUrl('index_chercheurJunior'));
                          
              }
          }
@@ -67,7 +67,7 @@ class Chercheur_JuniorController extends Controller
          $em = $this->getDoctrine()->getManager();
          $em->remove($chercheur_Junior);
          $em->flush();
-         return $this->redirect($this->generateUrl('index_chercheur_Junior'));
+         return $this->redirect($this->generateUrl('index_chercheurJunior'));
              }
          }
         return $this->render('LGMUserBundle:Chercheur_Junior:delete.html.twig'
